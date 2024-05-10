@@ -34,13 +34,10 @@ function draw() {
   background(255);
 
   blendMode(MULTIPLY);
+  noStroke();
 
   let vol = amplitude.getLevel() * gain;
   // let vol = mic.getLevel() * gain;
-
-  fill(0, 0, 0);
-
-  noStroke();
 
   /* -- Codice per centrare e scalare in automatico -- */
 
@@ -49,15 +46,12 @@ function draw() {
 
   const scale_factor = width / larghezza_composizione;
   scale(scale_factor);
-
-  const altezza_scalata = altezza_composizione / scale_factor;
-  translate(0, altezza_scalata / 2);
+  translate(margine, (height / scale_factor - altezza_composizione) / 2);
 
   /* -- ------------------------------------------ -- */
 
-  translate(margine, margine);
-
   push();
+  fill(0, 0, 0);
   lines(ls, s, a);
   pop();
 
